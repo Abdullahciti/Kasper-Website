@@ -48,6 +48,31 @@ ul {
 }
 /* End Global Rules */
 /* Start Components */
+/* java Script Elements  */
+.loader{
+  position: fixed;
+  height: 8px;
+  top: 0;
+  left: 0;
+  width: 0px;
+  background-color: #19c8fa;
+  z-index: 156423;
+}
+.go-up{
+  opacity: 0;
+  padding: 10px 10px;
+  border: none;
+  position: fixed;
+  right: 30px;
+  bottom: 40px;
+  color: #fcfcfc;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #19c8fa;
+  z-index: 1562;
+  cursor: pointer;
+  transition: opacity 0.5s linear;
+}
 .main-heading {
   text-align: center;
 }
@@ -205,6 +230,9 @@ header nav .form i {
   cursor: pointer;
 }
 header nav .form i:hover{
+  color: var(--main-color);
+}
+header nav .form .active-me{
   color: var(--main-color);
 }
 /* End Header */
@@ -998,6 +1026,25 @@ header nav .form i:hover{
 }
 .footer .social-icons i {
   padding: 10px 15px;
+}
+.footer .social-icons a:visited{
+  color: unset;
+}
+.footer .social-icons i:first-of-type:hover{
+  background: #1877F2;
+  cursor: pointer;
+}
+.footer .social-icons i:nth-of-type(2):hover{
+  background-color: #1DA1F2;
+  cursor: pointer;
+}
+.footer .social-icons i:nth-of-type(3):hover{
+  cursor: pointer;
+  background :#333;
+}
+.footer .social-icons i:hover:last-child{
+  cursor: pointer;
+  background: #0a66c2;
 }
 .footer .copyright {
   margin-top: 60px;
