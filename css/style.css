@@ -739,6 +739,10 @@ header nav .form .active-me{
   border-radius: 50%;
   margin-right: 10px;
 }
+.our-skills .testimonials .bullets li:hover{
+  cursor: pointer;
+  background-color: var(--main-color);
+}
 .our-skills .testimonials .bullets li.active {
   background-color: var(--main-color);
   border-color: var(--main-color);
