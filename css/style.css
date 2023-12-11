@@ -479,7 +479,9 @@ header nav .form .active-me{
 }
 .portfolio .shuffle li {
   padding: 10px;
+  cursor: pointer;
 }
+.portfolio .shuffle li:hover,
 .portfolio .shuffle li.active {
   background-color: var(--main-color);
   color: white;
@@ -576,10 +578,15 @@ header nav .form .active-me{
 }
 .video .text button {
   background-color: black;
-  color: white;
+  color: #fcfcfc;
   padding: 10px 20px;
   border: none;
   text-transform: uppercase;
+  transition: all 0.25s;
+}
+.video .text button:hover{
+  cursor: pointer;
+  background: var(--main-color);
 }
 /* End Video */
 /* Start About */
