@@ -52,7 +52,7 @@ window.onscroll = () => {
 
 //Start Toggle Menu
 
-toggleMenu.addEventListener("click", ()=> {
+/* toggleMenu.addEventListener("click", ()=> {
     listMenu.style = `    display: flex;
     flex-direction: column;
     position: absolute;
@@ -60,8 +60,11 @@ toggleMenu.addEventListener("click", ()=> {
     left: 0;
     width: 100%;
     background-color: rgb(0 0 0 / 50%);`
-})
-
+}) 
+ Add two numbers and
+   Store the output in a variable called result.
+   Also, print the output to the browser’s console
+*/
 //End Toggle Menu
 
 
