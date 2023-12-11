@@ -14,7 +14,10 @@ let stats = document.querySelector(".stats");
 let statsNum = document.querySelector(".stats .box .number");
 let statsNums = document.querySelectorAll(".stats .box .number");
 let ourSkills = document.querySelector(".our-skills");
-
+let skillsContent = document.querySelectorAll(".our-skills .testimonials .content")
+let skillsBullets = document.querySelectorAll(".our-skills .testimonials .bullets li")
+let skillBar = document.querySelector(".skills .prog-holder .prog span");
+let skillBars = document.querySelectorAll(".skills .prog-holder .prog span");
 
 nav.forEach((e)=> {
     e.addEventListener("click", ()=> {
@@ -33,6 +36,7 @@ searchBtn.onclick = function(){
 let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 currentIndex = 1;
 started = false;
+startedNo = false;
 
 
 // Start Loader and Go up Button
@@ -62,6 +66,13 @@ window.onscroll = () => {
             statsNums.forEach((ele) => startFind(ele));
         };
         started = true;
+    }
+    // Skills
+    if (window.scrollY >= ourSkills.offsetTop){
+        if (!startedNo){
+            skillBars.forEach((el) => startFindEl(el));
+        };
+        startedNo = true;
     }
 }
 // End Loader and Go up Button
@@ -97,27 +108,6 @@ bullets.forEach((bullet, index) => {
         bullets[index].classList.add("active");
     });
 });
-// function handleBullets (index) {
-    //     if (index === 0) {
-        //         changeBackground[0].style.pointerEvents = "none";
-        //         changeBackground[0].style.color = "#aaa";
-        //     }
-        //     else {
-            //         changeBackground[0].style.pointerEvents = "fill";
-            //         changeBackground[0].style.color = "#ddd";
-            //     }
-            //     if (index === 2) {
-                //         changeBackground[1].style.pointerEvents = "none";
-//         changeBackground[1].style.color = "#aaa";
-//     }
-//     else {
-//         changeBackground[1].style.pointerEvents = "fill";
-//         changeBackground[1].style.color = "#ddd";
-//     }
-// }
-//  End Bullets
-
-
 //  Start Portofolio
 portfolioLi.forEach((el)=> {
     el.addEventListener("click", () => {
@@ -151,3 +141,31 @@ function startFind (el){
     }, 1500 / goalNumber);
 }
 //  End Stats
+// Start Testi And Skills
+skillsBullets.forEach((el) => {
+    el.addEventListener("click", () => {
+        skillsBullets.forEach((bullet) => {
+            bullet.classList.remove("active");
+        })
+        el.classList.add("active");
+    })
+});
+
+//  Skills
+skillBars.forEach((el) => {
+    el.addEventListener("click", (el) => startFindEl(el));
+})
+
+function startFindEl (el) {
+    let skillGoal = el.dataset.progress;
+    currentNumber = 0;
+    let counter = setInterval(() => {
+        el.style = `width:${currentNumber++}%;`
+        if(`${currentNumber}%` >= skillGoal){
+            console.log(skillGoal);
+            clearInterval(counter);
+        }
+    }, 3000 / parseInt(skillGoal));
+}
+// End Testi And Skills 
+
