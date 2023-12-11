@@ -8,6 +8,13 @@ let listMenu = document.querySelector("ul");
 let bullets = document.querySelectorAll(".landing .bullets li");
 let changeBackground = document.querySelectorAll(".landing button")
 let landingContent = document.querySelectorAll(".landing .content");
+let portfolioLi = document.querySelectorAll(".portfolio .shuffle li");
+let videoBtn = document.querySelector(".video button");
+let stats = document.querySelector(".stats");
+let statsNum = document.querySelector(".stats .box .number");
+let statsNums = document.querySelectorAll(".stats .box .number");
+let ourSkills = document.querySelector(".our-skills");
+
 
 nav.forEach((e)=> {
     e.addEventListener("click", ()=> {
@@ -25,6 +32,7 @@ searchBtn.onclick = function(){
 // Settings
 let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 currentIndex = 1;
+started = false;
 
 
 // Start Loader and Go up Button
@@ -42,29 +50,34 @@ window.onscroll = () => {
                 })
             }
         }else {
-            goUpBtn.style.opacity = "0"
+            goUpBtn.style.opacity = "0";
         }
     } else {
         goUpBtn.style.display = "none";
+    }
+
+    // stats 
+    if (window.scrollY >= stats.offsetTop ){
+        if (!started){
+            statsNums.forEach((ele) => startFind(ele));
+        };
+        started = true;
     }
 }
 // End Loader and Go up Button
 
 //Start Toggle Menu
 
-/* toggleMenu.addEventListener("click", ()=> {
-    listMenu.style = `    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: rgb(0 0 0 / 50%);`
-}) 
- Add two numbers and
-   Store the output in a variable called result.
-   Also, print the output to the browser’s console
-*/
+// toggleMenu.addEventListener("click", ()=> {
+//     listMenu.style = `display: flex;
+//     flex-direction: column;
+//     position: absolute;
+//     top: 100%;
+//     left: 0;
+//     width: 100%;
+//     background-color: rgb(0 0 0 / 50%);`
+// })
+
 //End Toggle Menu
 
 
@@ -105,7 +118,36 @@ bullets.forEach((bullet, index) => {
 //  End Bullets
 
 
+//  Start Portofolio
+portfolioLi.forEach((el)=> {
+    el.addEventListener("click", () => {
+        portfolioLi.forEach((el)=> {
+            el.classList.remove("active");
+        })
+        el.classList.add("active");
+    })
+})
+//  End Portofolio
 
 
+// Start Video 
 
+// videoBtn.addEventListener("click", () => {
+//     download(videoBtn)
+// })
+// function download(element) {
 
+// }
+// End Video
+
+//  Start Stats
+function startFind (el){
+    let goalNumber = el.dataset.number;
+    let counter = setInterval(() => {
+        el.textContent++
+        if(el.textContent == goalNumber){
+            clearInterval(counter);
+        }
+    }, 1500 / goalNumber);
+}
+//  End Stats
