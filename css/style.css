@@ -148,6 +148,9 @@ header nav {
 header nav .toggle-menu {
   color: white;
   font-size: 22px;
+  cursor: pointer;
+}header nav .toggle-menu:hover {
+  color: var(--main-color);
 }
 @media (min-width: 768px) {
   header nav .toggle-menu {
@@ -158,7 +161,7 @@ header nav ul {
   display: flex;
 }
 #check{
-  opacity: 0;
+  display: none;
 }
 #check:checked ~ ul{
   display:none ;
@@ -183,6 +186,15 @@ header nav .search{
     display: none;
   }
   header nav .toggle-menu:hover + ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgb(0 0 0 / 50%);
+  }
+  header .list-menu{
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -243,6 +255,13 @@ header nav .form .active-me{
   background-image: url("../images/Landing.jpg");
   background-size: cover;
   position: relative;
+  background-position-x: center;
+  background-blend-mode: lighten;
+}
+@media (max-width: 680px) {
+  .landing{ 
+    background-blend-mode: color;
+  }
 }
 .landing .overlay {
   position: absolute;
@@ -264,16 +283,12 @@ header nav .form .active-me{
   display: flex;
   justify-content: flex-end;
 }
-.landing .text .content {
-  max-width: 500px;
+.landing .text .content{
+  display: none;
 }
-@media (max-width: 767px) {
-  .landing .text {
-    width: 100%;
-  }
-  .landing .text .content {
-    max-width: 100%;
-  }
+.landing .text .content.active-text{
+  display: block;
+  max-width: 500px;
 }
 .landing .text .content h2 {
   font-size: 32px;
@@ -281,27 +296,58 @@ header nav .form .active-me{
   line-height: 1.5;
   margin-bottom: 20px;
 }
+.landing .text .content h2 span{
+  font-size: 24px;
+}
+.landing .text .content h2{
+  font-size: 28px;
+}
+.landing .text .content h2 span{
+  font-size: 20px;
+}
 .landing .text .content p {
   font-size: 14px;
   line-height: 2;
 }
-.landing .change-background {
+@media (max-width: 767px) {
+  .landing .text {
+    width: 100%;
+    text-align: center;
+  }
+  .landing .text .content h2 span{
+    font-size: 24px;
+  }
+}
+/* .landing button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   color: #ddd;
+  background: transparent;
+  border: none;
+  transition: all 0.5s;
+}
+.landing button:focus {
+  outline: none;
+}
+.landing button:first-of-type{
+  left: 30px;
+  cursor: pointer;
+}
+.landing button:last-of-type{
+  cursor: pointer;
+  right: 30px;
+}
+.landing .fa-angle-left:hover,
+.landing .fa-angle-right:hover,
+.landing .active{
+  color: var(--main-color);
 }
 @media (max-width: 767px) {
   .landing .change-background {
     display: none;
   }
-}
-.landing .fa-angle-left {
-  left: 30px;
-}
-.landing .fa-angle-right {
-  right: 30px;
-}
+} */
 .landing .bullets {
   position: absolute;
   left: 50%;
@@ -315,6 +361,7 @@ header nav .form .active-me{
   border: 1px solid white;
   border-radius: 50%;
   margin-right: 10px;
+  cursor: pointer;
 }
 .landing .bullets li.active {
   background-color: var(--main-color);
