@@ -1000,6 +1000,7 @@ header nav .form .active-me{
 }
 .contact .content form textarea.main-input {
   height: 200px;
+  resize: none;
 }
 .contact .content form input[type="submit"] {
   background-color: var(--main-color);
